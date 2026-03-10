@@ -71,7 +71,7 @@
 <header>
   <h1>The Lost Kingdom</h1>
   <nav>
-    <a href="index.html">Home</a> 
+    <a href="the-lost-kingdom.html">Home</a> 
     <a href="library.html">Library</a> 
     <a href="about.html">About</a>
   </nav>
@@ -82,7 +82,7 @@
 
   <div class="story-text">
   <p>A climactic battle erupts. Arin fights with skill and bravery, leading his forces to victory. The enemy is defeated, but not without sacrifice.</p>
-</div>
+  </div>
 
   <div class="chapter-nav">
     <a href="chapter18.html">← Previous</a>
@@ -94,6 +94,20 @@
   <p>© 2026 StoryVerse</p>
 </footer>
 
-</body>
+<script>
+document.addEventListener("keydown", function(event) {
 
+  if (event.key === "ArrowRight") {
+    window.location.href = "chapter20.html";
+  }
+
+  if (event.key === "ArrowLeft") {
+    window.location.href = "chapter18.html";
+  }
+
+});
+</script>
+
+
+</body>
 </html>
