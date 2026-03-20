@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StoryVerse</title>
+<style>
+
+body{
+  margin:0;
+  font-family:Georgia, serif;
+  background:#dcf1f1;
+  padding-bottom:80px;
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:20px;
+  background:#2b2b2b;
+  color:white;
+}
+
+/* search bar */
+.search-box{
+  width:90%;
+  max-width:400px;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  margin-top:10px;
+}
+
+/* nav menu */
+.menu{
+margin-top:15px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.menu a{
+text-decoration:none;
+color:white;
+font-size:14px;
+padding:6px 10px;
+border-radius:6px;
+}
+
+.menu a:hover{
+background:#444;
+color:#00ccff;
+}
+
+/* CENTER WEBSITE */
+.section{
+padding:25px;
+max-width:1100px;
+margin:auto;
+}
+
+/* CATEGORY TITLE */
+.section h2{
+margin-bottom:10px;
+font-size:22px;
+font-weight:bold;
+}
+
+.category-box{
+background:white;
+border-radius:12px;
+padding:15px;
+margin-bottom:25px;
+box-shadow:0 3px 10px rgba(0,0,0,0.15);
+position: relative; /* needed for scroll buttons */
+}
+
+/* SCROLL ARROWS */
+.scroll-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:black;
+color:white;
+border:none;
+font-size:18px;
+width:30px;
+height:30px;
+border-radius:50%;
+cursor:pointer;
+opacity:0.7;
+}
+
+.scroll-left{ left:-10px; }
+.scroll-right{ right:-10px; }
+
+/* HORIZONTAL SCROLL (AlphaNovel style) */
+.story-grid{
+display:flex;
+gap:15px;
+overflow-x:auto;
+padding-bottom:10px;
+scroll-behavior:smooth;
+}
+
+/* hide scrollbar */
+.story-grid::-webkit-scrollbar{
+display:none;
+}
+
+/* STORY CARD */
+.story-card{
+min-width:100px;
+max-width:100px;
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 3px 10px rgba(0,0,0,0.15);
+cursor:pointer;
+transition:transform 0.2s;
+position: relative; /* needed for overlay */
+}
+
+.story-card:hover{
+transform:scale(1.05);
+}
+
+/* DARK HOVER OVERLAY */
+.story-card::after{
+content:"Read";
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,0.6);
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:14px;
+opacity:0;
+transition:0.3s;
+}
+
+.story-card:hover::after{
+opacity:1;
+}
+
+/* SQUARE IMAGE (7x7 style) */
+.story-card img{
+width:100%;
+height: 100%;
+aspect-ratio:1/1;
+}
+
+/* STORY INFO */
+.story-info{
+padding:2px;
+display:flex;
+flex-direction:column;
+}
+
+.story-info h3{
+margin:4px 0;
+font-size: 13px;
+}
+
+.story-info p{
+font-size:12px;
+margin-bottom:5px;
+}
+
+/* STAR RATING */
+.rating{
+font-size:11px;
+color:orange;
+}
+
+/* VIEWS */
+.views{
+font-size:10px;
+color:gray;
+}
+
+/* GENRE TAGS */
+.tags{
+margin-top:5px;
+}
+
+.tag{
+background:#eee;
+padding:3px 6px;
+border-radius:4px;
+font-size:10px;
+margin-right:5px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:15px;
+margin-top:20px;
+}
+
+/* MOBILE */
+@media (max-width:600px){
+.story-card{
+min-width:85px;
+max-width:85px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>StoryVerse</h1>
+<input class="search-box" type="text" placeholder="Search stories...">
+<nav class="menu">
+  <a href="index.html">🏠 Home</a>
+  <a href="library.html">📚 my list</a>
+  <a href="novel.html">📖 Novel</a>
+  <a href="more.html">⚙ more</a>
+</nav>
+</header>
+
+<section class="section">
+<!-- BILLIONAIRE/CEO -->
+<div class="category-box">
+  <h2>💼 Billionaire/CEO</h2>
+  <button class="scroll-btn scroll-left" onclick="scrollRow('row-ceo', -300)">◀</button>
+  <button class="scroll-btn scroll-right" onclick="scrollRow('row-ceo', 300)">▶</button>
+  <div class="story-grid" id="row-ceo">
+    <div class="story-card" onclick="location.href='CEO-affair.html'">
+      <img src="ceo-affair.jpg" alt="CEO-Affair">
+      <div class="story-info">
+        <h3>CEO Affair</h3>
+      </div>
+    </div>
+
+    <div class="story-card" onclick="location.href='billionaire-secrets.html'">
+      <img src="billionaire-secrets.jpg" alt="Billionaire-Secrets">
+      <div class="story-info">
+        <h3>Billionaire Secrets</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP TRENDING -->
+<div class="category-box">
+  <h2>🔥 Top Trending</h2>
+  <button class="scroll-btn scroll-left" onclick="scrollRow('row-trending', -300)">◀</button>
+  <button class="scroll-btn scroll-right" onclick="scrollRow('row-trending', 300)">▶</button>
+  <div class="story-grid" id="row-trending">
+    <div class="story-card" onclick="location.href='the-lost-kingdom.html'">
+      <img src="the-lost-kingdom.jpg" alt="The Lost Kingdom">
+      <div class="story-info">
+        <h3>The Lost Kingdom</h3>
+      </div>
+    </div>
+    <div class="story-card" onclick="location.href='city-of-shadows.html'">
+      <img src="city-of-shadows.jpg" alt="City of Shadows">
+      <div class="story-info">
+        <h3>City of Shadows</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOTTEST -->
+<div class="category-box">
+  <h2>🔥 Hottest</h2>
+  <button class="scroll-btn scroll-left" onclick="scrollRow('row-hottest', -300)">◀</button>
+  <button class="scroll-btn scroll-right" onclick="scrollRow('row-hottest', 300)">▶</button>
+  <div class="story-grid" id="row-hottest">
+    <div class="story-card" onclick="location.href='eternal-bloom.html'">
+      <img src="eternal-bloom.jpg" alt="Eternal Bloom">
+      <div class="story-info">
+        <h3>Eternal Bloom</h3>
+      </div>
+    </div>
+    <div class="story-card" onclick="location.href='dragon-heart.html'">
+      <img src="dragon-heart.jpg" alt="Dragon Heart">
+      <div class="story-info">
+        <h3>Dragon Heart</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAFIA -->
+<div class="category-box">
+  <h2>💀 Mafia</h2>
+  <button class="scroll-btn scroll-left" onclick="scrollRow('row-mafia', -300)">◀</button>
+  <button class="scroll-btn scroll-right" onclick="scrollRow('row-mafia', 300)">▶</button>
+  <div class="story-grid" id="row-mafia">
+    <div class="story-card" onclick="location.href='mafia-love.html'">
+      <img src="https://via.placeholder.com/300x230?text=Mafia+Love" alt="Mafia Love">
+      <div class="story-info">
+        <h3>Mafia Love</h3>
+      </div>
+    </div>
+    <div class="story-card" onclick="location.href='dark-empire.html'">
+      <img src="drak-empire.jpg" alt="Dark Empire">
+      <div class="story-info">
+        <h3>Dark Empire</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARRIAGE -->
+<div class="category-box">
+  <h2>💍 Marriage</h2>
+  <button class="scroll-btn scroll-left" onclick="scrollRow('row-marriage', -300)">◀</button>
+  <button class="scroll-btn scroll-right" onclick="scrollRow('row-marriage', 300)">▶</button>
+  <div class="story-grid" id="row-marriage">
+    <div class="story-card" onclick="location.href='arranged-fate.html'">
+      <img src="https://via.placeholder.com/300x230?text=Arranged+Fate" alt="Arranged Fate">
+      <div class="story-info">
+        <h3>Arranged Fate</h3>
+      </div>
+    </div>
+    <div class="story-card" onclick="location.href='love-contract.html'">
+      <img src="https://via.placeholder.com/300x230?text=Love+Contract" alt="Love Contract">
+      <div class="story-info">
+        <h3>Love Contract</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<script>
+/* SCROLL FUNCTION */
+function scrollRow(id,amount){
+  document.getElementById(id).scrollBy({
+    left:amount,
+    behavior:'smooth'
+  });
+}
+</script>
+
+<footer>
+© 2026 StoryVerse
+</footer>
+
+</body>
+</html>

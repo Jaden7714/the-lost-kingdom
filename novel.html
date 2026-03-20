@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Search Stories</title>
+
+<style>
+
+body{
+  font-family:Georgia, serif;
+  background:#f5f1e8;
+  margin:0;
+}
+
+header{
+  background:#2b2b2b;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+.search-box{
+  width:90%;
+  max-width:400px;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  margin-top:10px;
+}
+
+.section{
+  padding:20px;
+}
+
+.story{
+  background:white;
+  padding:10px;
+  border-radius:8px;
+  margin-bottom:15px;
+  display:flex;
+  gap:15px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap; 
+}
+
+/* LEFT SIDE (Image + Text) */
+.book-left{
+  display:flex;
+  gap:12px;
+  flex:1;
+  align-items:center;
+}
+
+.book-left a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:inherit;
+}
+
+.story img{
+  width:80px;
+  height:110px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+.book-info h3{
+  margin:0 0 5px 0;
+}
+
+.book-info p{
+  margin:0;
+  font-size:14px;
+}
+
+/* RIGHT SIDE BUTTONS */
+.book-actions{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  margin-top:5px; 
+}
+
+.book-actions button{
+  padding:6px 10px;
+  border-radius:5px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+/* LIKE BUTTON */
+.like {
+  background: transparent; /* no background */
+  border: none;            /* no border */
+  cursor: pointer;
+  padding: 0;
+  color: #888;             /* gray outline initially */
+}
+
+.like.liked {
+  color: red;              /* turns red */
+}
+
+.heart path {
+  fill: none;               /* empty initially */
+  transition: fill 0.2s;
+}
+
+.like.liked .heart path {
+  fill: red;               /* filled red when liked */
+}
+
+/* START BUTTON */
+.library{
+  background:#1bacd8;
+  color:white;
+  cursor:pointer;
+}
+
+
+/* --- TOP NAVIGATION --- */
+.top-nav{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:10px 0;
+  background:#2b2b2b;
+  flex-wrap:wrap;
+}
+
+.top-nav a{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  padding:6px 10px;
+  border-radius:6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.top-nav a:hover{
+  background:#444;
+  color:#00ccff;
+}
+
+
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px){
+  .story{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .book-left{
+    flex-direction:row;
+    align-items:center;
+    width:100%;
+  }
+  .book-actions{
+    margin-top:8px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1></h1>
+<input type="text" class="search-box" placeholder="Search novels...">
+</header>
+
+<!-- TOP NAVIGATION -->
+<nav class="top-nav">
+  <a href="index.html" class="active">🏠 Home</a>
+  <a href="library.html">📚 my list</a>
+  <a href="novel.html">📖 Novel</a>
+  <a href="more.html">⚙ More</a>
+</nav>
+
+<section class="section">
+
+<h2>Recommended For You</h2>
+
+<div class="story">
+
+  <div class="book-left">
+    <a href="the-lost-kingdom.html">
+      <img src="the-lost-kingdom.jpg" alt="The Lost Kingdom">
+      <div class="book-info">
+        <h3>The Lost Kingdom</h3>
+        <p>A warrior discovers a forgotten empire and begins a dangerous journey.</p>
+        <div class="tags"><span class="tag">Fantasy</span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="book-actions">
+    <button class="like">
+  <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.8 4.6c-1.6-1.6-4.2-1.6-5.8 0l-.9.9-.9-.9c-1.6-1.6-4.2-1.6-5.8 0-1.7 1.7-1.7 4.5 0 6.2l6.7 6.7 6.7-6.7c1.7-1.7 1.7-4.5 0-6.2z"/>
+  </svg>
+</button>
+    <a href="the-lost-kingdom.html"><button class="library">Start reading</button></a>
+  </div>
+
+</div>
+
+</section>
+
+<script>
+const likeBtn = document.querySelector('.like');
+likeBtn.addEventListener('click', () => {
+  likeBtn.classList.toggle('liked');
+});
+</script>
+
+</body>
+</html>
